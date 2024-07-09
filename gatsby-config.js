@@ -1,7 +1,11 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  graphqlTypegen:true,
   siteMetadata: {
     title: `cueforgood_contentful_v1`,
     siteUrl: `https://www.yourdomain.tld`
@@ -9,13 +13,13 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "T_XCwRmaQ6ixzj3yUEDu_l-2UjFEDitZzuZASaY5IA0",
-      "spaceId": "pxs7vf7i6z58"
+      "accessToken":process.env.ACCESS_TOKEN,
+      "spaceId":process.env.SPACE_ID
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-google-gtag", "gatsby-plugin-sitemap", {
+  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "src/images/fav.png"
     }
   }, {
     resolve: 'gatsby-source-filesystem',
